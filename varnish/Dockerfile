@@ -1,4 +1,5 @@
-FROM varnish:6.3
+# FROM varnish:6.3
+FROM varnish:6.3.2
 
 # Set Environment Variables
 ENV DEBIAN_FRONTEND noninteractive

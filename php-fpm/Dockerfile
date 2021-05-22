@@ -258,6 +258,24 @@ RUN if [ ${INSTALL_PCOV} = true ]; then \
 ;fi
 
 ###########################################################################
+# yac:
+###########################################################################
+
+USER root
+
+ARG INSTALL_YAC=true
+
+RUN if [ ${INSTALL_YAC} = true ]; then \
+  if [ $(php -r "echo PHP_MAJOR_VERSION;") = "7" ]; then \
+    pecl install yac && \
+    docker-php-ext-enable yac \
+  ;fi \
+;fi
+
+# Copy yac configuration for cli debugging
+COPY ./yac.ini /usr/local/etc/php/conf.d/yac.ini
+
+###########################################################################
 # Phpdbg:
 ###########################################################################
 

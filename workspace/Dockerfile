@@ -147,11 +147,12 @@ RUN echo "" >> ~/.bashrc && \
 # Update composer
 ARG COMPOSER_VERSION=2
 ENV COMPOSER_VERSION ${COMPOSER_VERSION}
-RUN composer self-update --${COMPOSER_VERSION}
+# RUN composer self-update --${COMPOSER_VERSION}
+RUN composer self-update ${COMPOSER_VERSION}
 
 USER laradock
 
-# Check if global install need to be ran
+# Check if global install need to be run
 ARG COMPOSER_GLOBAL_INSTALL=false
 ENV COMPOSER_GLOBAL_INSTALL ${COMPOSER_GLOBAL_INSTALL}
 
